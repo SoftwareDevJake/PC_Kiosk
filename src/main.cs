@@ -2,19 +2,25 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-class MForm : Form {
-    public MForm() {
-        
-        CenterToScreen();
-    }
+using CategoryBar;
+using Menu;
 
-    void OnExit(object sender, EventArgs e) {
-       Close();
-    }
-}
+public class MForm : Form {
+		public MForm()
+		{
+			// Category bar part
+			Category bar = new Category();
+			bar.Top(this);
+			
+			// Menu part
+			Items.Mid(this);
 
-class MApplication {
-    public static void Main() {
-        Application.Run(new MForm());
-    }
-}
+			CenterToScreen();
+		}
+	}
+
+	class MApplication {
+		public static void Main() {
+			Application.Run(new MForm());
+		}
+	}
