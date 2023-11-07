@@ -3,17 +3,22 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using CategoryBar;
+using PurchaseBar;
 using Menu;
 
 public class MForm : Form {
 		public MForm()
 		{
 			// Category bar part
-			Category bar = new Category();
-			bar.Top(this);
+			Category categoryBar = new Category();
+			categoryBar.Top(this);
 			
 			// Menu part
 			Items.Mid(this);
+			
+			// Bottom Right part
+			Purchase purchaseBar = new Purchase();
+			purchaseBar.BottomRight(this);
 
 			CenterToScreen();
 		}

@@ -16,26 +16,26 @@ namespace Menu
 		public static  string[] juiceMenu = {"쥬스", "쥬스2", "쥬스3", "쥬스4", "쥬스5", "쥬스6", "쥬스7", "쥬스8"};
 		// img of coffee menu
 		public static  Image[] coffeeMenuImg = {
-			Image.FromFile("/workspace/PC_Kiosk/img/icedShotExtra.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/IcedAmericano.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/coldbrew.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCafeLatte.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCafeMocha.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCappuccino.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCaramelMacchiato.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedEinspenner.png")
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedShotExtra.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/IcedAmericano.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/coldbrew.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCafeLatte.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCafeMocha.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCappuccino.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCaramelMacchiato.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedEinspenner.png")
 		};
 		
 		// img of coffee menu
 		public static  Image[] juiceMenuImg = {
-			Image.FromFile("/workspace/PC_Kiosk/img/icedEinspenner.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/IcedAmericano.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/coldbrew.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCafeLatte.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCafeMocha.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCappuccino.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedCaramelMacchiato.png"),
-			Image.FromFile("/workspace/PC_Kiosk/img/icedEinspenner.png")
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedEinspenner.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/IcedAmericano.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/coldbrew.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCafeLatte.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCafeMocha.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCappuccino.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedCaramelMacchiato.png"),
+			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedEinspenner.png")
 		};
 		
 		// form from main.cs
@@ -47,7 +47,7 @@ namespace Menu
 			form = mainForm;
 			
 			MenuPanel();
-			// it supposes to be ALL MENU
+			// TODO : it supposes to be ALL MENU
 			ShowMenu(coffeeMenu, coffeeMenuImg);
 		}
 		
@@ -119,16 +119,14 @@ namespace Menu
 		{
 			if(menuBtns != null)
 			{
-				Console.WriteLine("hi2");
 				for(int i = 0; i < menu.Length; i++)
 				{
-					Console.WriteLine("hi3");
 					menuPanel.Controls.Remove(menuBtns[i]);
 				}
 			}
 			else
 			{
-				Console.WriteLine("hi1");
+				Console.WriteLine("There are no menuBtns left");
 			}
 			
 		}
