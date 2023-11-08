@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using PurchaseBar;
+
 namespace Menu
 {
 	public static class Items
@@ -47,7 +49,7 @@ namespace Menu
 			form = mainForm;
 			
 			MenuPanel();
-			// TODO : it supposes to be ALL MENU
+			// TODO : it is suppossed to be ALL MENU
 			ShowMenu(coffeeMenu, coffeeMenuImg);
 		}
 		
@@ -135,7 +137,9 @@ namespace Menu
 		{
 			Button btn = sender as Button;
 
-			MessageBox.Show(btn.Text.ToString());
+			// MessageBox.Show(btn.Text.ToString());
+			
+			Purchase.CreateSelectedItems(btn.Text.ToString());
 		}
 	}
 }
