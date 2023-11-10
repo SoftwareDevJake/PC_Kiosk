@@ -13,7 +13,7 @@ namespace PurchaseBar
 		public Button purchaseBtn;
 		public Button cancelBtn;
 		// Price Label
-		public Label priceText;
+		public static Label priceText;
 		
 		// Selected Item Panel
 		public static Panel selectedItemPanel;
@@ -26,6 +26,8 @@ namespace PurchaseBar
 		public static Form form;
 		
 		public static int floor = 0;
+		
+		public static Dictionary<string,int> itemPriceDic = new Dictionary<string,int>();
 		
 		public void BottomRight(Form mainForm)
 		{
@@ -41,6 +43,25 @@ namespace PurchaseBar
 			// Selected parts
 			chosenMenuTxt = new Label();
 			
+			// Dictionary info
+			itemPriceDic.Add("X아샷추", 3500);
+			itemPriceDic.Add("X아메리카노", 2500);
+			itemPriceDic.Add("X콜드브루", 3000);
+			itemPriceDic.Add("X카페라떼", 4000);
+			itemPriceDic.Add("X카페모카", 4500);
+			itemPriceDic.Add("X카푸치노", 4500);
+			itemPriceDic.Add("X카라멜 마끼아또", 4500);
+			itemPriceDic.Add("X아인슈페너", 3500);
+			
+			itemPriceDic.Add("X쥬스1", 3500);
+			itemPriceDic.Add("X쥬스2", 2500);
+			itemPriceDic.Add("X쥬스3", 2500);
+			itemPriceDic.Add("X쥬스4", 2500);
+			itemPriceDic.Add("X쥬스5", 4500);
+			itemPriceDic.Add("X쥬스6", 2500);
+			itemPriceDic.Add("X쥬스7", 3500);
+			itemPriceDic.Add("X쥬스8", 2500);
+
 			BottomRightPanelControl();
 		}
 		
@@ -83,35 +104,57 @@ namespace PurchaseBar
 		
 		public static void CreateSelectedItems(string name)
 		{
-			int xPos = 0;
-			int yPos = 0;
-			
-			if(Purchase.selectedList.Count == 0)
+			if(Purchase.selectedList.Count >= 3)
 			{
-				xPos = 70;
-				yPos = 3;
-				floor++;
-			}
-			else if(Purchase.selectedList.Count == 1)
-			{
-				xPos = 5;
-				yPos = 25;
+				MessageBox.Show("3개가 최대 입니다.");
 			}
 			else
 			{
-				xPos = 70;
-				yPos = 25;
+				int xPos = 0;
+				int yPos = 0;
+
+				if(Purchase.selectedList.Count == 0)
+				{
+					xPos = 70;
+					yPos = 3;
+					floor++;
+				}
+				else if(Purchase.selectedList.Count == 1)
+				{
+					xPos = 5;
+					yPos = 25;
+				}
+				else
+				{
+					xPos = 70;
+					yPos = 25;
+				}
+
+				Button selectedItem = new Button();
+
+				selectedItem.Location = new Point(xPos, yPos);
+				selectedItem.Parent = Purchase.selectedItemPanel;
+				selectedItem.Size = new Size(50, 20);
+				selectedItem.Text = "X" + name;
+				selectedItem.Click += new EventHandler(Purchase.OnSelectedItemClick);
+
+				Purchase.selectedList.Add(selectedItem);
+				
+				int result = 0;
+				
+				for(int i = 0; i < Purchase.selectedList.Count; i++)
+				{
+					int price = 0;
+					string priceTxt = itemPriceDic[Purchase.selectedList[i].Text].ToString();
+					int.TryParse(priceTxt, out price);
+					
+					Console.WriteLine("menu : " + Purchase.selectedList[i].Text);
+					Console.WriteLine("price : " + price);
+					result += price;
+				}
+				priceText.Text = result.ToString() + "원";
+				
 			}
-			
-			Button selectedItem = new Button();
-			
-			selectedItem.Location = new Point(xPos, yPos);
-			selectedItem.Parent = Purchase.selectedItemPanel;
-			selectedItem.Size = new Size(50, 20);
-			selectedItem.Text = "X" + name;
-			selectedItem.Click += new EventHandler(Purchase.OnSelectedItemClick);
-			
-			Purchase.selectedList.Add(selectedItem);
 		}
 		
 		public static void OnSelectedItemClick(object sender, EventArgs e)
