@@ -148,8 +148,6 @@ namespace PurchaseBar
 					string priceTxt = itemPriceDic[Purchase.selectedList[i].Text].ToString();
 					int.TryParse(priceTxt, out price);
 					
-					Console.WriteLine("menu : " + Purchase.selectedList[i].Text);
-					Console.WriteLine("price : " + price);
 					result += price;
 				}
 				priceText.Text = result.ToString() + "원";
@@ -161,8 +159,21 @@ namespace PurchaseBar
 		{
 			Button btn = sender as Button;
 			// removing selected btn
-			Purchase.selectedList.Remove(Purchase.selectedList[0]);
+			Purchase.selectedList.Remove(btn);
 			form.Controls.Remove(btn);
+			
+			int result = 0;
+				
+				for(int i = 0; i < Purchase.selectedList.Count; i++)
+				{
+					int price = 0;
+					string priceTxt = itemPriceDic[Purchase.selectedList[i].Text].ToString();
+					int.TryParse(priceTxt, out price);
+					
+					result += price;
+				}
+				priceText.Text = result.ToString() + "원";
+			
 			btn.Dispose();
 		}
 		
@@ -194,7 +205,7 @@ namespace PurchaseBar
 			priceText.Location = new Point(60, 5);
 			priceText.Parent = purchasePanel;
 			// priceText.Size = new Size(100, 0);
-			priceText.Text = "price";
+			priceText.Text = "0원";
 			priceText.AutoSize = true;
 		}
 	}
