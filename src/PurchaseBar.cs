@@ -19,8 +19,7 @@ namespace PurchaseBar
 		public static Panel selectedItemPanel;
 		// Selected Item's msg
 		public Label chosenMenuTxt;
-		// Selected Item's selected btns (when it's clicked, it'll be canceled)
-		public Control[] selectedCancelBtns;
+		
 		public static List<Button> selectedList = new List<Button>();
 		
 		public static Form form;

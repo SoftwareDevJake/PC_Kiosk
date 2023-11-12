@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using PurchaseBar;
+using Popup;
 
 namespace Menu
 {
@@ -136,42 +137,11 @@ namespace Menu
 		public static void OnMenuBtnClick(object sender, EventArgs e)
 		{
 			Button btn = sender as Button;
-			
-			ShowModal();
-			
+			// popup
+			PopupDetails popup = new PopupDetails();
+			popup.ShowModal(form);
+			// it should run when the customer selects for sure
 			Purchase.CreateSelectedItems(btn.Text.ToString());
-		}
-		
-		public static void ShowModal()
-		{
-			Form f = new Form();
-			
-			f.Size = new Size(200,250);
-			f.StartPosition = FormStartPosition.Manual;
-			// f.Location = new Point(140, 50);
-			f.Location = new Point(10, 10);
-			f.ShowDialog(form);
-			
-			Panel p = new Panel();
-			
-			p.Height = 100;
-			p.Width = 100;
-			p.Location = new Point(10, 10);
-			p.BackColor = Color.Black;
-			f.Controls.Add(p);
-			
-			Button backBtn = new Button();
-			
-			backBtn.Location = new Point(10, 10);
-			backBtn.Parent = p;
-			backBtn.Size = new Size(50, 50);
-			backBtn.Text = "◁";
-			backBtn.Click += new EventHandler(OnBackBtnClick);
-		}
-		
-		public static void OnBackBtnClick(object sender, EventArgs e)
-		{
-			MessageBox.Show("Back button has pressed!");
 		}
 	}
 }
