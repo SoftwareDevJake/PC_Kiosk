@@ -139,9 +139,7 @@ namespace Menu
 			Button btn = sender as Button;
 			// popup
 			PopupDetails popup = new PopupDetails();
-			popup.ShowModal(form);
-			// it should run when the customer selects for sure
-			Purchase.CreateSelectedItems(btn.Text.ToString());
+			popup.ShowModal(form, btn.Text.ToString());			
 		}
 	}
 }

@@ -35,8 +35,11 @@ namespace Popup
 		public Button selectBtn = new Button();
 		public Button cancelBtn = new Button();
 		
-		public void ShowModal(Form form)
+		public string selectedName;
+		
+		public void ShowModal(Form form, string name)
 		{
+			selectedName = name;
 			popupForm.Size = new Size(200,250);
 			popupForm.StartPosition = FormStartPosition.Manual;
 			popupForm.Location = new Point(140, 50);
@@ -362,12 +365,15 @@ namespace Popup
 		
 		public void OnSelectBtnClick(object sender, EventArgs e)
 		{
+			Purchase.CreateSelectedItems(selectedName);
 			Console.WriteLine("selectBtn clicked");
+			popupForm.Close();
 		}
 		
 		public void OnCancelBtnClick(object sender, EventArgs e)
 		{
 			Console.WriteLine("cancelBtn clicked");
+			popupForm.Close();
 		}
 	}
 }

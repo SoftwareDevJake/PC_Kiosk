@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
+using LastStep;
+
 namespace PurchaseBar
 {
 	public class Purchase
@@ -75,7 +77,8 @@ namespace PurchaseBar
 		
 		void OnPurchaseBtnClick(object sender, EventArgs e)
 		{
-			MessageBox.Show("Purchase button has pressed!");
+			LastQuestion lastStep = new LastQuestion();
+			lastStep.LastModal(form);
 		}
 		
 		void OnCancelBtnClick(object sender, EventArgs e)
