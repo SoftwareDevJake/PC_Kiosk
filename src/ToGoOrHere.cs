@@ -59,6 +59,14 @@ namespace LastStep
 		
 		public void OnHereBtnClick(object sender, EventArgs e)
 		{
+			int totalSelectedItem = Purchase.selectedList.Count;
+			for(int i = totalSelectedItem - 1; i >= 0 ; i--)
+			{
+				Purchase.OnSelectedItemClick(Purchase.selectedList[i], null);
+			}
+			Items.orderedNum++;
+			MessageBox.Show(Items.orderedNum + "번째 포장 주문을 접수하였습니다.");
+			
 			lastForm.Close();
 		}
 	}

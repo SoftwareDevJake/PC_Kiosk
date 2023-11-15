@@ -58,7 +58,7 @@ namespace PurchaseBar
 			itemPriceDic.Add("X연유라떼", 4800);
 			itemPriceDic.Add("X헤이즐넛라떼", 4800);
 			
-			itemPriceDic.Add("X쥬스1", 3500);
+			itemPriceDic.Add("X쥬스", 3500);
 			itemPriceDic.Add("X쥬스2", 2500);
 			itemPriceDic.Add("X쥬스3", 2500);
 			itemPriceDic.Add("X쥬스4", 2500);
@@ -108,7 +108,7 @@ namespace PurchaseBar
 			chosenMenuTxt.AutoSize = true;
 		}
 		
-		public static void CreateSelectedItems(string name)
+		public static void CreateSelectedItems(string name, int extraMoney)
 		{
 			if(Purchase.selectedList.Count >= 3)
 			{
@@ -156,6 +156,7 @@ namespace PurchaseBar
 					
 					result += price;
 				}
+				result += extraMoney;
 				priceText.Text = result.ToString() + "원";
 				
 			}
@@ -170,15 +171,32 @@ namespace PurchaseBar
 			
 			int result = 0;
 				
-				for(int i = 0; i < Purchase.selectedList.Count; i++)
+			for(int i = 0; i < Purchase.selectedList.Count; i++)
+			{
+				int price = 0;
+				string priceTxt = itemPriceDic[Purchase.selectedList[i].Text].ToString();
+				int.TryParse(priceTxt, out price);
+
+				result += price;
+			}
+			priceText.Text = result.ToString() + "원";
+			
+			for(int i = 0; i < Purchase.selectedList.Count; i++)
+			{
+				if(i == 0)
 				{
-					int price = 0;
-					string priceTxt = itemPriceDic[Purchase.selectedList[i].Text].ToString();
-					int.TryParse(priceTxt, out price);
-					
-					result += price;
+					Purchase.selectedList[i].Location = new Point(70, 3);
 				}
-				priceText.Text = result.ToString() + "원";
+				else if(i == 1)
+				{
+					Purchase.selectedList[i].Location = new Point(5, 25);
+				}
+				else
+				{
+					Purchase.selectedList[i].Location = new Point(70, 25);
+				}
+				
+			}
 			
 			btn.Dispose();
 		}

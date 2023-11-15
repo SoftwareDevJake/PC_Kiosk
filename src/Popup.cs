@@ -356,7 +356,25 @@ namespace Popup
 		
 		public void OnSelectBtnClick(object sender, EventArgs e)
 		{
-			Purchase.CreateSelectedItems(selectedName);
+			int extra = 0;
+			
+			if(soyMilkBtn.BackColor == Color.CornflowerBlue)
+			{
+				extra += 500;
+			}
+			
+			if(oneExtraShot.BackColor == Color.CornflowerBlue)
+			{
+				extra += 500;
+			}
+			else if(twoExtraShot.BackColor == Color.CornflowerBlue)
+			{
+				extra += 1000;
+			}
+			
+			Console.WriteLine("extra : " + extra);
+			
+			Purchase.CreateSelectedItems(selectedName, extra);
 			popupForm.Close();
 		}
 		
