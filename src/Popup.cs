@@ -50,15 +50,6 @@ namespace Popup
 			popupPanel.BackColor = Color.White;
 			popupForm.Controls.Add(popupPanel);
 			
-			Button backBtn = new Button();
-			
-			backBtn.Location = new Point(10, 10);
-			backBtn.Parent = popupPanel;
-			backBtn.Size = new Size(30, 30);
-			backBtn.BackColor = Color.CornflowerBlue;
-			backBtn.Text = "◁";
-			backBtn.Click += new EventHandler(OnBackBtnClick);
-			
 			IceOrHot();
 			ChangingMilk();
 			AmountOfIce();
@@ -366,13 +357,11 @@ namespace Popup
 		public void OnSelectBtnClick(object sender, EventArgs e)
 		{
 			Purchase.CreateSelectedItems(selectedName);
-			Console.WriteLine("selectBtn clicked");
 			popupForm.Close();
 		}
 		
 		public void OnCancelBtnClick(object sender, EventArgs e)
 		{
-			Console.WriteLine("cancelBtn clicked");
 			popupForm.Close();
 		}
 	}

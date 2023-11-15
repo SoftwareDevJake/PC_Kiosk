@@ -11,7 +11,7 @@ namespace CategoryBar
 		// middle category number
 		public int middleCategory = 1;
 		// name of categories
-		public string[] categories = {"전체", "커피", "논커피라떼", "생과일주스", "에이드", "요거트", "스무디", "쉐이크앤프라페", "버블티", "티"};
+		public string[] categories = {"전체", "커피", "라떼", "주스", "스무디", "버블티", "티"};
 		// category bar panel
 		public Panel CategoryPanel;
 		// Creating a control of buttons
@@ -98,17 +98,19 @@ namespace CategoryBar
 
 			if(btn.Text.ToString().Equals("커피"))
 			{
-				MessageBox.Show("coffee menu");
 				Items.CoffeeMenuControl();
 			}
-			else if(btn.Text.ToString().Equals("생과일주스"))
+			else if(btn.Text.ToString().Equals("라떼"))
 			{
-				MessageBox.Show("juice menu");
+				Items.LatteMenuControl();
+			}
+			else if(btn.Text.ToString().Equals("주스"))
+			{
 				Items.JuiceMenuControl();
 			}
 			else
 			{
-				MessageBox.Show("all menu");
+				Items.AllMenuControl();
 			}
 		}
 

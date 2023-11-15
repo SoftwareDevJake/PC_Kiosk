@@ -48,11 +48,15 @@ namespace PurchaseBar
 			itemPriceDic.Add("X아샷추", 3500);
 			itemPriceDic.Add("X아메리카노", 2500);
 			itemPriceDic.Add("X콜드브루", 3000);
+			itemPriceDic.Add("X아인슈페너", 3500);
+			
 			itemPriceDic.Add("X카페라떼", 4000);
 			itemPriceDic.Add("X카페모카", 4500);
 			itemPriceDic.Add("X카푸치노", 4500);
 			itemPriceDic.Add("X카라멜 마끼아또", 4500);
-			itemPriceDic.Add("X아인슈페너", 3500);
+			itemPriceDic.Add("X바닐라라떼", 4800);
+			itemPriceDic.Add("X연유라떼", 4800);
+			itemPriceDic.Add("X헤이즐넛라떼", 4800);
 			
 			itemPriceDic.Add("X쥬스1", 3500);
 			itemPriceDic.Add("X쥬스2", 2500);
