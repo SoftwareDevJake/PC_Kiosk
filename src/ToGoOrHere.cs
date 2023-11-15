@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using PurchaseBar;
+using Menu;
 
 namespace LastStep
 {
@@ -50,6 +51,9 @@ namespace LastStep
 			{
 				Purchase.OnSelectedItemClick(Purchase.selectedList[i], null);
 			}
+			Items.orderedNum++;
+			MessageBox.Show(Items.orderedNum + "번째 주문을 접수하였습니다.");
+			
 			lastForm.Close();
 		}
 		

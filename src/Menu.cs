@@ -9,6 +9,8 @@ namespace Menu
 {
 	public static class Items
 	{
+		// number of order
+		public static int orderedNum = 0;
 		// Menu panel
 		public static  Panel menuPanel;
 		// Creating a control of buttons
@@ -20,7 +22,7 @@ namespace Menu
 		// name of latte menu
 		public static string[] latteMenu = {"카페라떼", "바닐라라떼", "헤이즐넛라떼", "연유라떼","카페모카", "카푸치노", "카라멜 마끼아또"};
 		// name of juice menu
-		public static  string[] juiceMenu = {"쥬스", "쥬스2", "쥬스3", "쥬스4", "쥬스5", "쥬스6", "쥬스7", "쥬스8"};
+		public static  string[] juiceMenu = {"쥬스1", "쥬스2", "쥬스3", "쥬스4", "쥬스5", "쥬스6", "쥬스7", "쥬스8"};
 		
 		// img of all
 		public static Image[] allMenuImg = {
@@ -97,17 +99,8 @@ namespace Menu
 			menuPanel.BackColor = Color.White; // main color
 			
 			menuPanel.AutoScroll = true;
-			ScrollToBottom(menuPanel);
 			
 			form.Controls.Add(menuPanel);
-		}
-		
-		public static void ScrollToBottom(Panel p){
-		  using (Control c = new Control() { Parent = p, Dock = DockStyle.Bottom })
-			 {
-				p.ScrollControlIntoView(c);
-				c.Parent = null;
-			 }
 		}
 		
 		public static void AllMenuControl()

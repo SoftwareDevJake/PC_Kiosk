@@ -49,6 +49,7 @@ namespace CategoryBar
 			backBtn.Location = new Point(0,5);
 			backBtn.Parent = CategoryPanel;
 			backBtn.Size = new Size(50, 30);
+			backBtn.Enabled = false;
 			backBtn.Text = "◁";
 			backBtn.Click += new EventHandler(OnBackBtnClick);
 			// Forth Button
@@ -116,23 +117,24 @@ namespace CategoryBar
 
 		void OnBackBtnClick(object sender, EventArgs e)
 		{
+			forthBtn.Enabled = true;
 			if(middleCategory - 1 <= 0)
 			{
-				MessageBox.Show("No More Categories.");
+				backBtn.Enabled = false;
 			}
 			else
 			{
 				DeleteAllBtns();
 				ShowCategoryButtons(-1);	
 			}
-
 		}
 
 		void OnForthBtnClick(object sender, EventArgs e)
 		{
+			backBtn.Enabled = true;
 			if(middleCategory + 1 >= categories.Length - 1)
 			{
-				MessageBox.Show("No More Categories.");
+				forthBtn.Enabled = false;
 			}
 			else
 			{
