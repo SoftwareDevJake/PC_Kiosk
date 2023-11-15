@@ -93,9 +93,21 @@ namespace Menu
 			menuPanel = new Panel();
 			menuPanel.Height = 180;
 			menuPanel.Width = 300;
-			menuPanel.Location = new Point(0, 40);
+			menuPanel.Location = new Point(-10, 40);
 			menuPanel.BackColor = Color.White; // main color
+			
+			menuPanel.AutoScroll = true;
+			ScrollToBottom(menuPanel);
+			
 			form.Controls.Add(menuPanel);
+		}
+		
+		public static void ScrollToBottom(Panel p){
+		  using (Control c = new Control() { Parent = p, Dock = DockStyle.Bottom })
+			 {
+				p.ScrollControlIntoView(c);
+				c.Parent = null;
+			 }
 		}
 		
 		public static void AllMenuControl()

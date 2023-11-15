@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using PurchaseBar;
+
 namespace LastStep
 {
 	public class LastQuestion
@@ -24,15 +26,6 @@ namespace LastStep
 			lastPanel.BackColor = Color.CornflowerBlue;
 			lastForm.Controls.Add(lastPanel);
 			
-			Button backBtn = new Button();
-			
-			backBtn.Location = new Point(10, 10);
-			backBtn.Parent = lastPanel;
-			backBtn.Size = new Size(30, 30);
-			backBtn.BackColor = Color.Gray;
-			backBtn.Text = "◁";
-			backBtn.Click += new EventHandler(OnBackBtnClick);
-			
 			toGoBtn.Location = new Point(50, 50);
 			toGoBtn.Parent = lastPanel;
 			toGoBtn.Size = new Size(100, 50);
@@ -50,13 +43,13 @@ namespace LastStep
 			lastForm.ShowDialog(form);
 		}
 		
-		public void OnBackBtnClick(object sender, EventArgs e)
-		{
-			lastForm.Close();
-		}
-		
 		public void OnToGoBtnClick(object sender, EventArgs e)
 		{
+			int totalSelectedItem = Purchase.selectedList.Count;
+			for(int i = totalSelectedItem - 1; i >= 0 ; i--)
+			{
+				Purchase.OnSelectedItemClick(Purchase.selectedList[i], null);
+			}
 			lastForm.Close();
 		}
 		
