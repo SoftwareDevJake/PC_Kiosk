@@ -24,6 +24,8 @@ namespace Menu
 		// name of juice menu
 		public static  string[] juiceMenu = {"쥬스", "쥬스2", "쥬스3", "쥬스4", "쥬스5", "쥬스6", "쥬스7", "쥬스8"};
 		
+		// add more menu?
+		
 		// img of all
 		public static Image[] allMenuImg = {
 			Image.FromFile("/workspace/PC_Kiosk/img/coffee/icedShotExtra.png"),

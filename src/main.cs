@@ -21,6 +21,8 @@ public class MForm : Form {
 			purchaseBar.BottomRight(this);
 
 			CenterToScreen();
+			
+			// any other things?
 		}
 	}
 

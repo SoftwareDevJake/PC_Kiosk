@@ -8,6 +8,7 @@ namespace Popup
 {
 	public class PopupDetails
 	{
+		// hard coded
 		public Form popupForm = new Form();
 		public Panel popupPanel = new Panel();
 		

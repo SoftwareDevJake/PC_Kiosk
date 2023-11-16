@@ -16,6 +16,9 @@ namespace CategoryBar
 		public Panel CategoryPanel;
 		// Creating a control of buttons
 		public Control[] categoryBtns;
+		
+		// more categories?
+		
 		// buttons for back and forth
 		public Button backBtn;
 		public Button forthBtn;
